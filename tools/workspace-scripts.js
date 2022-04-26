@@ -57,13 +57,20 @@ module.exports = {
       },
     },
     '⚙️': {
-      script: `npx cowsay "@nativescript/* packages will keep your ⚙️ cranking"`,
-      description: '_____________  @nativescript/*  _____________',
+      script: `npx cowsay "@robernator/* packages will keep your ⚙️ cranking"`,
+      description: '_____________  @robernator/*  _____________',
     },
     // packages
     // build output is always in dist/packages
-    '@nativescript': {
-      'build-all': {
+    '@robernator': {
+      // @robernator/nativescript-label-marquee
+			'nativescript-label-marquee': {
+				build: {
+					script: 'nx run nativescript-label-marquee:build.all',
+					description: '@robernator/nativescript-label-marquee: Build',
+				},
+			},
+			'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
       },
@@ -73,8 +80,12 @@ module.exports = {
       description: '_____________  Focus (VS Code supported)  _____________',
     },
     focus: {
-      reset: {
-        script: 'nx g @nativescript/plugin-tools:focus-packages',
+      'nativescript-label-marquee': {
+				script: 'nx run nativescript-label-marquee:focus',
+				description: 'Focus on @robernator/nativescript-label-marquee',
+			},
+			reset: {
+        script: 'nx g @robernator/plugin-tools:focus-packages',
         description: 'Reset Focus',
       },
     },
